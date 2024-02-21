@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from "./components/Header";
 import Filters from "./components/Filters";
