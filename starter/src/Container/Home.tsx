@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -6,7 +7,7 @@ import Cuisines from "../components/Cuisines";
 import RestaurantContextConstructor from "../context/RestaurantContext";
 import RestaurantDetail from "../components/RestaurantDetail ";
 import CuisinesDetails from "../components/CuisinesDetails";
-import PopularResaurants from "../components/PopularResaurants";
+import PopularResaurants from "../components/PopularRestaurants";
 import SurpriseRestaurant from "../components/SurpriseRestaurant";
 import Favorites from "../components/Favorites";
 import { FavoritesContextProvider } from "../context/FavouritesContext";
@@ -17,7 +18,6 @@ const Home = () => {
       <FavoritesContextProvider>
         <BrowserRouter>
           <Navbar />
-
           <Routes>
             <Route
               path="/"

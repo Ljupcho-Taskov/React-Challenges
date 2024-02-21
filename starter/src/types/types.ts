@@ -9,7 +9,7 @@ export interface Data {
   slug: string;
   email: string;
   id: number;
-  reviewsList: [];
+  reviewsList: ReviewsList[];
 }
 [];
 export interface ReviewsList {

@@ -10,7 +10,7 @@ const AllRestaurants: React.FC = () => {
     <div className="container">
       <h2 className="text-center">All Restaurants</h2>
 
-      <div className="flex">
+      <div className="d-flex flex-wrap">
         {restaurants.map((restaurant) => (
           <RestaurantCard
             key={restaurant.id}

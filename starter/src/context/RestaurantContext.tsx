@@ -3,18 +3,18 @@ import { Data, ReviewsList } from "../types/types";
 
 interface RestaurantContextType {
   restaurants: Data[];
-  reviews: ReviewsList[];
-  top10Restaurants: Data[];
-  setReviews: React.Dispatch<React.SetStateAction<ReviewsList[]>>;
+  reviewsList: ReviewsList[];
+  setReviewsList: React.Dispatch<React.SetStateAction<ReviewsList[]>>;
   setRestaurants: React.Dispatch<React.SetStateAction<Data[]>>;
+  calculateAverageRating: (reviewsList: ReviewsList[]) => number;
 }
 
 export const RestaurantContext = createContext<RestaurantContextType>({
   restaurants: [],
-  reviews: [],
-  top10Restaurants: [],
-  setReviews: () => {},
+  reviewsList: [],
+  setReviewsList: () => {},
   setRestaurants: () => {},
+  calculateAverageRating: () => 0,
 });
 
 interface Props {
@@ -38,31 +38,34 @@ export const RestaurantContextConstructor: React.FC<Props> = ({ children }) => {
     },
   ]);
 
-  const [reviews, setReviews] = useState<ReviewsList[]>([]);
-  const [top10Restaurants, setTop10Restaurants] = useState<Data[]>([]);
+  const [reviewsList, setReviewsList] = useState<ReviewsList[]>([]);
+
+  const calculateAverageRating = (reviewsList: ReviewsList[]) => {
+    if (reviewsList.length > 0) {
+      const totalStars = reviewsList.reduce(
+        (acc, review) => acc + review.stars,
+        0
+      );
+      return totalStars / reviewsList.length;
+    }
+    return 0;
+  };
 
   useEffect(() => {
     fetch("http://localhost:5001/restaurants/")
       .then((res) => res.json())
       .then((data) => {
-        const sortedRestaurants = [...data].sort(
-          (a, b) => b.reviews - a.reviews
-        );
-
-        const top10 = sortedRestaurants.slice(0, 10);
-
         setRestaurants(data);
-        setReviews(data);
-        setTop10Restaurants(top10);
+        setReviewsList(data.reviewsList);
       });
   }, []);
 
   const contextValue: RestaurantContextType = {
     restaurants,
-    reviews,
-    top10Restaurants,
+    reviewsList,
     setRestaurants,
-    setReviews,
+    setReviewsList,
+    calculateAverageRating,
   };
 
   return (
@@ -73,75 +76,3 @@ export const RestaurantContextConstructor: React.FC<Props> = ({ children }) => {
 };
 
 export default RestaurantContextConstructor;
-
-// import React, { createContext, useContext, useEffect, useState } from "react";
-// import { Data, ReviewsList } from "../types/types";
-// import { Link } from "react-router-dom";
-
-// interface RestaurantContextType {
-//   restaurants: Data[];
-//   reviews: ReviewsList[];
-//   top10Restaurants: Data[];
-//   favorites: number[]; // Add favorites property
-//   toggleToFavorites: (restaurantId: number) => void; // Add toggleToFavorites property
-// }
-
-// export const RestaurantContext = createContext<
-//   RestaurantContextType | undefined
-// >(undefined);
-
-// interface Props {
-//   children: React.ReactNode;
-// }
-
-// const RestaurantContextProvider: React.FC<Props> = ({ children }) => {
-//   const [restaurants, setRestaurants] = useState<Data[]>([]);
-//   const [reviews, setReviews] = useState<ReviewsList[]>([]);
-//   const [top10Restaurants, setTop10Restaurants] = useState<Data[]>([]);
-//   const [favorites, setFavorites] = useState<number[]>([]);
-
-//   // Function to toggle favorites
-//   const toggleToFavorites = (restaurantId: number) => {
-//     setFavorites((prevFavorites) => {
-//       if (prevFavorites.includes(restaurantId)) {
-//         // Remove from favorites
-//         return prevFavorites.filter((id) => id !== restaurantId);
-//       } else {
-//         // Add to favorites
-//         return [...prevFavorites, restaurantId];
-//       }
-//     });
-//   };
-
-//   useEffect(() => {
-//     fetch("http://localhost:5001/restaurants/")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         const sortedRestaurants = [...data].sort(
-//           (a, b) => b.reviews - a.reviews
-//         );
-
-//         const top10 = sortedRestaurants.slice(0, 10);
-
-//         setRestaurants(data);
-//         setReviews(data);
-//         setTop10Restaurants(top10);
-//       });
-//   }, []);
-
-//   const contextValue: RestaurantContextType = {
-//     restaurants,
-//     reviews,
-//     top10Restaurants,
-//     favorites, // Include favorites in the context
-//     toggleToFavorites, // Include toggleToFavorites in the context
-//   };
-
-//   return (
-//     <RestaurantContext.Provider value={contextValue}>
-//       {children}
-//     </RestaurantContext.Provider>
-//   );
-// };
-
-// export default RestaurantContextProvider;

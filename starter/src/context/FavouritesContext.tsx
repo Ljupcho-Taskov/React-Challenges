@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface FavoritesContextType {
   favorites: number[];
@@ -22,13 +22,11 @@ export const FavoritesContextProvider: React.FC<Props> = ({ children }) => {
     setFavorites((prevFavorites) => {
       const index = prevFavorites.indexOf(restaurantId);
       if (index !== -1) {
-        // Remove from favorites
         const updatedFavorites = [...prevFavorites];
         updatedFavorites.splice(index, 1);
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
         return updatedFavorites;
       } else {
-        // Add to favorites
         const updatedFavorites = [...prevFavorites, restaurantId];
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
         return updatedFavorites;

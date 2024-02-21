@@ -21,10 +21,10 @@ const Cuisines: React.FC = () => {
   return (
     <div className="container">
       <h2 className="text-center">Cuisines</h2>
-      <div className="flex justify-content-center text-white">
+      <div className="d-flex justify-content-around text-white">
         {cuisineType.map((cuisine, index) => (
           <button
-            className="red-background mr-2"
+            className="red-background"
             key={index}
             onClick={() => navigateToCuisineDetails(cuisine)}
           >

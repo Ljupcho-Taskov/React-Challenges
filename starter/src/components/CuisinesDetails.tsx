@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { RestaurantContext } from "../context/RestaurantContext";
 import { useParams } from "react-router-dom";
 import { ReviewsList } from "../types/types";
+import RestaurantCard from "./RestaurantCard";
+import { useFavorites } from "../context/FavouritesContext";
 
 const CuisineDetails: React.FC = () => {
   const { cuisineType } = useParams();
   const { restaurants } = useContext(RestaurantContext);
+  const { toggleFavorite } = useFavorites();
 
   const calculateAverageRating = (reviewsList: ReviewsList[]) => {
     if (reviewsList.length > 0) {
@@ -28,22 +31,13 @@ const CuisineDetails: React.FC = () => {
   return (
     <div className="container">
       <h2>{restaurant?.restauranttype}</h2>
-      <div className="flex">
+      <div className="row d-flex">
         {filteredRestaurants.map((restaurant) => (
-          <div className="res" key={restaurant.id}>
-            <picture className="">
-              <img className="rounded-lg" src={restaurant.image} alt="" />
-            </picture>
-            <div className="bg-light rounded-bottom">
-              <h5>{restaurant.businessname}</h5>
-              <p>{restaurant.restauranttype}</p>
-              <p>
-                Ratings:
-                {calculateAverageRating(restaurant.reviewsList).toFixed(2)}
-              </p>
-              <p>Based on {restaurant.reviews} reviews</p>
-            </div>
-          </div>
+          <RestaurantCard
+            key={restaurant.id}
+            restaurant={restaurant}
+            addToFavorites={toggleFavorite}
+          />
         ))}
       </div>
     </div>
