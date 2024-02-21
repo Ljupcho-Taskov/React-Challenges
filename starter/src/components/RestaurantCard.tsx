@@ -14,11 +14,8 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
   const { calculateAverageRating } = useContext(RestaurantContext);
 
   return (
-    <div className="col-12 col-sm-6 col-lg-4 mb-4">
-      <Link
-        to={`/restaurant-details/${restaurant.businessname}`}
-        className="res"
-      >
+    <div className="col-12 col-sm-6 col-lg-4 mb-4 res">
+      <Link to={`/restaurant-details/${restaurant.businessname}`}>
         <picture className="position-relative">
           <img className="rounded-lg" src={restaurant.image} alt="" />
           <i

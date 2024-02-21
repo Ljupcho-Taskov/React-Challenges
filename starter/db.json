@@ -614,32 +614,7 @@
       "id": "606ec9cb3d8f5100047d7a09",
       "reviewsList": []
     },
-    {
-      "reviews": 0,
-      "parkinglot": false,
-      "phone": "08145290260",
-      "image": "https://cdn.pixabay.com/photo/2013/08/29/04/41/wine-glasses-176991__480.jpg",
-      "restauranttype": "canteen",
-      "businessname": "test",
-      "address": "testing",
-      "slug": "test",
-      "email": "test@gmail.com",
-      "id": "606ed0a03d8f5100047d7a0b",
-      "reviewsList": []
-    },
-    {
-      "reviews": 0,
-      "parkinglot": false,
-      "phone": "08145290260",
-      "image": "https://cdn.pixabay.com/photo/2020/01/02/17/25/champagne-4736380__480.jpg",
-      "restauranttype": "canteen",
-      "businessname": "s",
-      "address": "ssssss",
-      "slug": "s",
-      "email": "s@gmail.com",
-      "id": "606ed1223d8f5100047d7a0c",
-      "reviewsList": []
-    },
+
     {
       "reviews": 0,
       "parkinglot": false,
@@ -705,45 +680,7 @@
       "id": "606ed5033d8f5100047d7a17",
       "reviewsList": []
     },
-    {
-      "reviews": 0,
-      "parkinglot": false,
-      "phone": "08145290260",
-      "image": "https://cdn.pixabay.com/photo/2014/08/22/21/25/coffee-424763__480.jpg",
-      "restauranttype": "canteen",
-      "businessname": "testt",
-      "address": "te",
-      "slug": "testt",
-      "email": "testt@gmail.com",
-      "id": "606ed6903d8f5100047d7a19",
-      "reviewsList": []
-    },
-    {
-      "reviews": 0,
-      "parkinglot": false,
-      "phone": "08145290260",
-      "image": "https://cdn.pixabay.com/photo/2020/03/13/08/34/south-station-4927286__480.jpg",
-      "restauranttype": "canteen",
-      "businessname": "testttt",
-      "address": "tet",
-      "slug": "testttt",
-      "email": "testttt@gmail.com",
-      "id": "606ed6a53d8f5100047d7a1a",
-      "reviewsList": []
-    },
-    {
-      "reviews": 0,
-      "parkinglot": false,
-      "phone": "08145290260",
-      "image": "https://cdn.pixabay.com/photo/2019/06/25/13/59/city-4298285__480.jpg",
-      "restauranttype": "canteen",
-      "businessname": "test 1",
-      "address": "test",
-      "slug": "test-1",
-      "email": "test-1@gmail.com",
-      "id": "606ed73f3d8f5100047d7a1c",
-      "reviewsList": []
-    },
+
     {
       "reviews": 0,
       "parkinglot": false,
