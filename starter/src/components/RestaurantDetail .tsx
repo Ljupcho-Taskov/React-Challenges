@@ -83,11 +83,12 @@ const RestaurantDetail = () => {
         {restaurant.reviewsList.length === 0 ? null : (
           <div>
             <p>
-              Based on {restaurant.reviewsList.length}
-              {restaurant.reviewsList.length === 1 ? "review" : "reviews"}
+              <span className="bold">Based on </span>
+              {restaurant.reviewsList.length}
+              {restaurant.reviewsList.length === 1 ? " review" : " reviews"}
             </p>
             <p>
-              Ratings:
+              <span className="bold"> Ratings: </span>
               {calculateAverageRating(restaurant.reviewsList).toFixed(2)}
             </p>
           </div>
@@ -102,9 +103,15 @@ const RestaurantDetail = () => {
           <>
             {restaurant.reviewsList.map((review) => (
               <div className="bg-light py-2 px-1 mb-3" key={review.id}>
-                <p>Author: {review.author}</p>
-                <p>Comment: {review.comment}</p>
-                <p>Stars: {review.stars}</p>
+                <p>
+                  <span className="bold">Author:</span> {review.author}
+                </p>
+                <p>
+                  <span className="bold">Comment:</span> {review.comment}
+                </p>
+                <p>
+                  <span className="bold">Stars:</span> {review.stars}
+                </p>
               </div>
             ))}
           </>
@@ -114,7 +121,7 @@ const RestaurantDetail = () => {
         <label htmlFor="name">Name</label>
         <br />
         <input
-          className="w-100"
+          className="w-100 mb-2"
           id="name"
           type="text"
           name="author"

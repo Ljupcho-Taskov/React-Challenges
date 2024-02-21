@@ -53,3 +53,9 @@ button {
   font-size: 30px;
   color: red;
 }
+.bold {
+  font-weight: bold;
+}
+.red {
+  color: #ff6247;
+}

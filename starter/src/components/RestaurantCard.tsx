@@ -14,7 +14,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
   const { calculateAverageRating } = useContext(RestaurantContext);
 
   return (
-    <div className="col-12 col-sm-6 col-md-4 mb-4">
+    <div className="col-12 col-sm-6 col-lg-4 mb-4">
       <Link
         to={`/restaurant-details/${restaurant.businessname}`}
         className="res"
@@ -31,18 +31,22 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
             }}
           ></i>
         </picture>
-        <div className="bg-light rounded-bottom py-1 px-2">
+        <div
+          style={{ height: "160px" }}
+          className="bg-light rounded-bottom py-1 px-2"
+        >
           <h5>{restaurant.businessname}</h5>
-          <p>{restaurant.restauranttype}</p>
+          <p className="bold red">{restaurant.restauranttype}</p>
 
           {restaurant.reviewsList.length === 0 ? null : (
             <div>
               <p>
-                Based on {restaurant.reviewsList.length}
-                {restaurant.reviewsList.length === 1 ? "review" : "reviews"}
+                <span className="bold"> Based on </span>
+                {restaurant.reviewsList.length}
+                {restaurant.reviewsList.length === 1 ? " review" : " reviews"}
               </p>
               <p>
-                Ratings:
+                <span className="bold">Ratings: </span>
                 {calculateAverageRating(restaurant.reviewsList).toFixed(2)}
               </p>
             </div>
