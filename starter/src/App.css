@@ -12,7 +12,7 @@ picture {
 }
 
 .res:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -49,6 +49,8 @@ button {
   color: white;
   padding: 5px 10px;
   border-radius: 4px;
+  width: 100%;
+  border: none;
 }
 
 .small-heart {

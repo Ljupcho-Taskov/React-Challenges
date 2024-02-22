@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { RestaurantContext } from "../context/RestaurantContext";
 import { useNavigate } from "react-router-dom";
+import Reveal from "./Reveal";
 
 const Cuisines: React.FC = () => {
   const { restaurants } = useContext(RestaurantContext);
@@ -20,16 +21,19 @@ const Cuisines: React.FC = () => {
 
   return (
     <div className="container">
-      <h2 className="text-center">Cuisines</h2>
-      <div className="d-flex justify-content-around text-white">
+      <h2 className="text-center mb-4">Cuisines</h2>
+      <div className="row justify-content-center ">
         {cuisineType.map((cuisine, index) => (
-          <button
-            className="red-background"
-            key={index}
-            onClick={() => navigateToCuisineDetails(cuisine)}
-          >
-            {cuisine}
-          </button>
+          <div className="col-8 col-sm-4 col-lg-2 mb-3 res " key={index}>
+            <Reveal>
+              <button
+                className="red-background "
+                onClick={() => navigateToCuisineDetails(cuisine)}
+              >
+                {cuisine}
+              </button>
+            </Reveal>
+          </div>
         ))}
       </div>
     </div>

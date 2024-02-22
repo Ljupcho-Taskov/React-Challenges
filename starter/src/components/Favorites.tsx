@@ -27,7 +27,7 @@ const Favorites: React.FC = () => {
   return (
     <div className="container">
       <h2 className="text-center">Favorite Restaurants</h2>
-      <div className="d-flex">
+      <div className="d-flex flex-wrap">
         {favoriteRestaurants.map(
           (restaurant: Data) =>
             restaurant && (

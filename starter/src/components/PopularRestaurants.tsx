@@ -17,7 +17,7 @@ const PopularRestaurants: React.FC = () => {
 
   return (
     <div className="container">
-      <h2 className="text-center">Popular Restaurants</h2>
+      <h2 className="text-center mb-4">Popular Restaurants</h2>
       <div className="row d-flex">
         {top10.map((restaurant: Data) => (
           <RestaurantCard

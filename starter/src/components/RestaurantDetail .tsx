@@ -152,7 +152,7 @@ const RestaurantDetail = () => {
           value={newReview.stars}
           onChange={handleStarsChange}
         />
-        <button className="w-100 btn btn-success" type="submit">
+        <button className="w-100 btn btn-success res" type="submit">
           Add Review
         </button>
       </form>

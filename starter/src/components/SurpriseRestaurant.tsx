@@ -16,8 +16,11 @@ const SurpriseRestaurant: React.FC = () => {
 
   return (
     <div className="container">
-      <h2 className="text-uppercasse text-center">Surprise Restaurant</h2>
-      <button className="btn btn-success w-100" onClick={getRandomRestaurant}>
+      <h2 className="text-uppercasse text-center mb-4">Surprise Restaurant</h2>
+      <button
+        className="btn btn-success w-100 res"
+        onClick={getRandomRestaurant}
+      >
         Get a Surprise Restaurant
       </button>
     </div>

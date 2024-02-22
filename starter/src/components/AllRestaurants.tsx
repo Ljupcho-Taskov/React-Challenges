@@ -8,7 +8,7 @@ const AllRestaurants: React.FC = () => {
   const { toggleFavorite } = useFavorites();
   return (
     <div className="container">
-      <h2 className="text-center">All Restaurants</h2>
+      <h2 className="text-center mb-3">All Restaurants</h2>
 
       <div className="d-flex flex-wrap">
         {restaurants.map((restaurant) => (
